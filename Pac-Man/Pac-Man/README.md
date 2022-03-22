@@ -1,6 +1,9 @@
-# Snake
-Snake is a clone of the classic game that we all used to play on our cellphones. You play this game 
-on a simulated terminal, with a textual interface.
+PAC MAN
+
+PAC MAN
+
+Pac-Man is an action maze chase video game; the player controls the eponymous character through an enclosed maze.
+
 
 ## Getting Started
 ---
@@ -20,7 +23,7 @@ project folder. Select the main module inside the hunter folder and click the "r
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
-+-- snake               (source code for game)
++-- pac man              (source code for game)
   +-- game              (specific game classes)
   +-- __main__.py       (entry point for program)
 +-- README.md           (general info)
@@ -33,4 +36,7 @@ root                    (project root folder)
 
 ## Authors
 ---
-* TODO: Add your name and email here
+Team Members:
+
+Adja -> bernitos_diparma@yahoo.it Benjamin -> benjamin.huerta.awi@gmail.com Courtney -> lothlorienexplorer20@gmail.com Nelson -> alexanortega@gmail.com
+
