@@ -18,41 +18,26 @@ class Player:
     pyray.draw_texture(self.playerTexture, self._x, self._y, pyray.WHITE)
   
   def movePlayer(self):
-    # self.prev = pyray.Vector2(self._x, self._y)
-
-    # if pyray.is_key_pressed(pyray.KEY_D): #right
-    #   self.vel = pyray.Vector2(self.speed, 0)
-    # elif pyray.is_key_pressed(pyray.KEY_A): #left
-    #   self.vel = pyray.Vector2(-self.speed, 0)
-    # elif pyray.is_key_pressed(pyray.KEY_S): #down
-    #   self.vel = pyray.Vector2(0,self.speed)
-    # elif pyray.is_key_pressed(pyray.KEY_W): #up
-    #   self.vel = pyray.Vector2(0, -self.speed)
-
-    # self._x += int(self.vel.x)
-    # self.collideH()
-
-    # self._y += int(self.vel.y)
-    # self.collideV()
     self.prev = pyray.Vector2(self._x, self._y)
 
-    if pyray.is_key_down(pyray.KEY_D): #right
-      self._x += self.speed
-    elif pyray.is_key_down(pyray.KEY_A): #left
-      self._x += -self.speed
+    if pyray.is_key_pressed(pyray.KEY_D): #right
+      self.vel = pyray.Vector2(self.speed, 0)
+    if pyray.is_key_pressed(pyray.KEY_A): #left
+      self.vel = pyray.Vector2(-self.speed, 0)
     
+    self._x += int(self.vel.x)
     self.collideH()
+    if pyray.is_key_pressed(pyray.KEY_S): #down
+      self.vel = pyray.Vector2(0,self.speed)
+    if pyray.is_key_pressed(pyray.KEY_W): #up
+      self.vel = pyray.Vector2(0, -self.speed)
 
-    if pyray.is_key_down(pyray.KEY_S): #down
-      self._y += self.speed
-    elif pyray.is_key_down(pyray.KEY_W): #up
-      self._y += -self.speed
-
+    self._y += int(self.vel.y)
     self.collideV()
 
-    for i in range(len(setup.coins)-1,0,-1):
-      if(self.collide.collide(self, setup.coins[i])):
-        setup.coins.pop(i)
+    # for i in range(len(setup.coins)-1,0,-1):
+    #   if(self.collide.collide(self, setup.coins[i])):
+    #     setup.coins.pop(i)
 
 
   def collideV(self):

@@ -1,11 +1,11 @@
 import pyray
-import board
+import game
 import setup
 
 pyray.set_target_fps(60)
 
 pyray.init_window(setup.MAX_X, setup.MAX_Y, setup.CAPTION)
-gameBoard = board.Board()
+gameBoard = game.Board()
 gameBoard.createBoard()
 
 while not pyray.window_should_close():

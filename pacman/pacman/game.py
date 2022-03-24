@@ -3,6 +3,7 @@ from block import Block
 from coins import Coins
 from player import Player
 from ghost import Ghost
+from score import Score
 
 #creates the boards
 
@@ -14,20 +15,23 @@ class Board:
         'bgcccccccccgb',
         'bcbbcbbbcbbcb',
         'bcbcccccccbcb',
-        'bcccccccccccb',
-        'bcbcccccccbcb',
+        'bcccbbcbbcccb',
+        'bcbcbcccbcbcb',
         'bcbcccpcccbcb',
-        'bcbcccccccbcb',
-        'bcccccccccccb',
+        'bcbcbcccbcbcb',
+        'bcccbbcbbcccb',
         'bcbcccccccbcb',
         'bcbbcbbbcbbcb',
         'bgcccccccccgb',
         'bbbbbbbbbbbbb'
       ]]
     self.level = 0
+    self.score = Score()
 
   def createBoard(self):
-    print(self.board[self.level])
+    self.score.resetScore()
+    self.emptyList()
+
     for i in range(len(self.board[self.level])):
       for j in range(len(self.board[self.level][i])):
         id = self.board[self.level][i][j]
@@ -44,7 +48,11 @@ class Board:
     for i in range(len(setup.blocks)):
       setup.blocks[i].displayBlock()
     
-    for i in range(len(setup.coins)):
+    for i in range(len(setup.coins)-1,-1,-1):
+      if setup.coins[i].collected():
+        setup.coins.pop(i)
+        self.score.addPoints() 
+        continue
       setup.coins[i].displayCoins()
     
     for i in range(len(setup.pacman)):
@@ -53,3 +61,13 @@ class Board:
 
     for i in range(len(setup.ghosts)):
       setup.ghosts[i].displayGhost()
+
+    self.score.displayScore()
+
+  def emptyList(self):
+    setup.ghosts = []
+    setup.pacman = []
+    setup.coins = []
+    setup.blocks = []
+    
+  
