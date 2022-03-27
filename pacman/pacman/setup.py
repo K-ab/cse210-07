@@ -21,7 +21,7 @@ coins = []
 pacman = []
 ghosts = []
 
-FONT_SIZE = 15
+FONT_SIZE = 16
 COLUMNS = 40
 ROWS = 20
 MAX_X = 520
