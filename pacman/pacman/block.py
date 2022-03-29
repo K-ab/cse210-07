@@ -10,5 +10,5 @@ class Block:
     self._size = setup.bSize
 
   def displayBlock(self):
-    pyray.draw_rectangle(self._x, self._y, self._size, self._size, pyray.BROWN)
+    pyray.draw_rectangle(self._x, self._y, self._size, self._size, setup.blockColor)
 

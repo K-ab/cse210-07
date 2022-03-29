@@ -34,6 +34,7 @@ class Player:
 
     self._y += int(self.vel.y)
     self.collideV()
+    self.die()
 
     # for i in range(len(setup.coins)-1,0,-1):
     #   if(self.collide.collide(self, setup.coins[i])):
@@ -53,3 +54,8 @@ class Player:
         b = setup.blocks[i]
         self._x = b._x - self._size if self.prev.x < b._x else b._x + b._size
         self.vel = pyray.Vector2(0,0)
+  
+  def die(self):
+    for i in range(len(setup.ghosts)):
+      if self.collide.collide(self,setup.ghosts[i]):
+        setup.display = 'gameOver'

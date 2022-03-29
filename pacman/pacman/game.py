@@ -9,23 +9,8 @@ from score import Score
 
 class Board: 
   def __init__(self) -> None:
-    self.board = [
-      [
-        'bbbbbbbbbbbbb',
-        'bgcccccccccgb',
-        'bcbbcbbbcbbcb',
-        'bcbcccccccbcb',
-        'bcccbbcbbcccb',
-        'bcbcbcccbcbcb',
-        'bcbcccpcccbcb',
-        'bcbcbcccbcbcb',
-        'bcccbbcbbcccb',
-        'bcbcccccccbcb',
-        'bcbbcbbbcbbcb',
-        'bgcccccccccgb',
-        'bbbbbbbbbbbbb'
-      ]]
-    self.level = 0
+    self.board = setup.board
+    self.level = setup.lvl
     self.score = Score()
 
   def createBoard(self):
@@ -60,6 +45,7 @@ class Board:
       setup.pacman[i].createPlayer()
 
     for i in range(len(setup.ghosts)):
+      setup.ghosts[i].move()
       setup.ghosts[i].displayGhost()
 
     self.score.displayScore()
