@@ -26,11 +26,12 @@ class Scene():
     pyray.draw_texture(self.deadImg, 175, 150, pyray.WHITE)
     self.restart()
 
-  # def restart(self):
-  #   pyray.draw_text('RESTART', 120, 75, setup.FONT_SIZE*2, pyray.YELLOW)
-  #   if pyray.is_key_pressed(pyray.KEY_R):
-  #     self.drawOnce = 0
-  #     self.play()
+  def restart(self):
+    pyray.draw_text('CLICK TO RESTART', 120, 400, setup.FONT_SIZE*2, pyray.YELLOW)
+    if pyray.is_mouse_button_pressed(0):
+      setup.display = 'play'
+      self.drawOnce = 0
+      self.play()
 
 level = Scene()
 scenes = {
